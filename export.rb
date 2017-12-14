@@ -6,11 +6,16 @@ require 'fileutils'
 class Export
 
   def initialize
-    # puts ARGV
-    destination_datadir = '/usr/local/var/mysql_blank'
-    @database = 'real_store_development6'
+    destination_datadir = opts[:output]
+    @database = opts[:database]
     @destination = File.join(destination_datadir, @database)
-    @mysql = Mysql2::Client.new(:host => 'localhost', :username => 'root', :database => @database)
+    @mysql = Mysql2::Client.new(
+      host: 'localhost',
+      username: opts[:user],
+      password: opts[:password],
+      database => @database
+    )
+
     @datadir = @mysql.query('select @@datadir;').first['@@datadir']
     @tables = @mysql.query('show tables').map { |item| item.values.first }
 

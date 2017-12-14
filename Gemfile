@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'mysql2'
-gem 'slop'
 gem 'byebug'
+gem 'yargs'

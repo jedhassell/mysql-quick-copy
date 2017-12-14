@@ -3,17 +3,26 @@ require 'slop'
 require 'byebug'
 require 'fileutils'
 require 'io/console'
+require 'optparse'
 
 class Import
 
-  def initialize
-    source_dir = '/usr/local/var/mysql_blank'
-    @database = 'real_store_development6'
-    @db_files = File.join(source_dir, @database)
-    @mysql = Mysql2::Client.new(:host => 'localhost', :username => 'root')
+  def initialize(source: '/tmp', database: 'real_store_development', user: 'root', password: '')
+    @source = source
+    @user = user
+    @password = password
+    @database = database
+    @db_files = File.join(@source, @database)
+    @mysql = Mysql2::Client.new(
+      host: 'localhost',
+      username: @user,
+      password: @password,
+      database: @database
+    )
+
     @mysql.query("drop database if exists #{@database}") ############### REMOVE ME
     @mysql.query("create database #{@database}")
-    @mysql.query("use #{@database}")
+    @mysql.query("use #{database}")
     @datadir = @mysql.query('select @@datadir;').first['@@datadir']
 
     import_schema
@@ -45,7 +54,7 @@ class Import
   end
 
   def import_schema
-    `mysql -u root #{@database} < #{File.join(@db_files, 'schema.sql')}`
+    `mysql -u #{@user} #{@database} < #{File.join(@db_files, 'schema.sql')}`
   end
 
   def copy_table_data(table)
@@ -57,4 +66,25 @@ class Import
   # end
 end
 
-Import.new
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: example.rb [options]"
+
+  opts.on("-s", "--source SOURCE", "the source directory") do |source|
+    options[:source] = source
+  end
+
+  opts.on("-d", "--database DATABASE", "The database name") do |database|
+    options[:database] = database
+  end
+
+  opts.on("-u", "--user USER", "The user") do |user|
+    options[:user] = user
+  end
+
+  opts.on("-p", "--password PASSWORD", "The password") do |e|
+    options[:password] = e
+  end
+end.parse!
+
+Import.new(options)
