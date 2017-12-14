@@ -12,7 +12,7 @@ class Export
       host: 'localhost',
       username: opts[:user],
       password: opts[:password],
-      database => @database
+      database: @database
     )
 
     @datadir = @mysql.query('select @@datadir;').first['@@datadir']
