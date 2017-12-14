@@ -1,5 +1,4 @@
 require 'mysql2'
-require 'slop'
 require 'byebug'
 require 'fileutils'
 
@@ -46,10 +45,6 @@ class Export
     @mysql.query('unlock tables')
   end
 
-  # def parse_options
-  #   # use slop
-  # end
-  #
   def dump_schema
     `mysqldump -u root --no-data #{@database} > #{File.join(@destination, 'schema.sql')}`
   end

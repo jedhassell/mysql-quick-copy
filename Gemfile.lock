@@ -3,7 +3,6 @@ GEM
   specs:
     byebug (9.0.6)
     mysql2 (0.4.5)
-    slop (3.6.0)
 
 PLATFORMS
   ruby
@@ -11,7 +10,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   mysql2
-  slop
 
 BUNDLED WITH
    1.16.0

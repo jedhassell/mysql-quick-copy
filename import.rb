@@ -1,5 +1,4 @@
 require 'mysql2'
-require 'slop'
 require 'byebug'
 require 'fileutils'
 require 'io/console'
@@ -60,10 +59,6 @@ class Import
   def copy_table_data(table)
     FileUtils.cp([File.join(@db_files, "#{table}.cfg"), File.join(@db_files, "#{table}.ibd")], File.join(@datadir, @database))
   end
-
-  # def parse_options
-  #   # use slop
-  # end
 end
 
 options = {}
