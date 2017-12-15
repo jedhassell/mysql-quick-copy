@@ -7,7 +7,7 @@ require 'optparse'
 class Import
 
   def initialize(source: '/tmp', database: 'real_store_development', user: 'root', password: '')
-    @source = source
+    @source = File.expand_path(source)
     @user = user
     @password = password
     @database = database

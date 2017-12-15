@@ -4,7 +4,7 @@ require 'fileutils'
 
 class Export
   def initialize(output: '/tmp', database: 'real_store_development', user: 'root', password: '')
-    @output = output
+    @output = File.expand_path(output)
     @user = user
     @password = password
     @database = database
