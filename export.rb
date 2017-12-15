@@ -22,9 +22,10 @@ class Export
     FileUtils.mkdir_p(@destination)
     dump_schema
 
+    spinner = ['—', '\\', '|', '/', '—', '\\', '|']
     num_tables = @tables.size
     @tables.each_with_index do |table, i|
-      print " [#{i}/#{num_tables}] complete.\r"
+      print " [#{i}/#{num_tables}] complete.  #{spinner[i % spinner.size]}\r"
       $stdout.flush
       flush_table(table)
       copy_table(table)
