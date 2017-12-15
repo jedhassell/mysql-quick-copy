@@ -3,15 +3,16 @@ require 'byebug'
 require 'fileutils'
 
 class Export
-
-  def initialize
-    destination_datadir = opts[:output]
-    @database = opts[:database]
-    @destination = File.join(destination_datadir, @database)
+  def initialize(output: '/tmp', database: 'real_store_development', user: 'root', password: '')
+    @output = output
+    @user = user
+    @password = password
+    @database = database
+    @destination = File.join(output, @database)
     @mysql = Mysql2::Client.new(
       host: 'localhost',
-      username: opts[:user],
-      password: opts[:password],
+      username: @user,
+      password: @password,
       database: @database
     )
 
