@@ -15,8 +15,7 @@ class Import
     @mysql = Mysql2::Client.new(
       host: 'localhost',
       username: @user,
-      password: @password,
-      database: @database
+      password: @password
     )
 
     @mysql.query("drop database if exists #{@database}") ############### REMOVE ME
