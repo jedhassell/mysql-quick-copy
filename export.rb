@@ -1,6 +1,7 @@
 require 'mysql2'
 require 'byebug'
 require 'fileutils'
+require 'optparse'
 
 class Export
   def initialize(output: '/tmp', database: 'real_store_development', user: 'root', password: '')
