@@ -49,7 +49,27 @@ class Export
   def dump_schema
     `mysqldump -u root --no-data #{@database} > #{File.join(@destination, 'schema.sql')}`
   end
-
 end
 
-Export.new
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: example.rb [options]"
+
+  opts.on("-o", "--output OUTPUT", "the output directory") do |source|
+    options[:source] = source
+  end
+
+  opts.on("-d", "--database DATABASE", "The database name") do |database|
+    options[:database] = database
+  end
+
+  opts.on("-u", "--user USER", "The user") do |user|
+    options[:user] = user
+  end
+
+  opts.on("-p", "--password PASSWORD", "The password") do |e|
+    options[:password] = e
+  end
+end.parse!
+
+Export.new(options)
