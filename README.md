@@ -22,6 +22,7 @@ For a 55GB database:
 * Script needs to be run on the server with MySQL client installed.
 * This method locks each table individually during the export process.
 * Script needs access to the MySQL `datadir` directory.
+* Only works with MySQL
 
 ### Use cases
 * Copying databases for developers
