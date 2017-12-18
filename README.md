@@ -19,7 +19,7 @@ For a 55GB database:
 ./import.rb -d 'my_database' -u 'user' -p 'password' -s '/tmp'
 ```
 ### Notes
-* Script needs to be run on the server.
+* Script needs to be run on the server with MySQL client installed.
 * This method locks each table individually during the export process.
 * Script needs access to the MySQL `datadir` directory.
 
