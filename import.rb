@@ -52,7 +52,8 @@ class Import
   end
 
   def import_schema
-    `mysql -u #{@user} #{@database} < #{File.join(@db_files, 'schema.sql')}`
+    password = @password.empty? ? '' : "-p#{@password}"
+    `mysql -u #{@user} #{password} #{@database} < #{File.join(@db_files, 'schema.sql')}`
   end
 
   def copy_table_data(table)

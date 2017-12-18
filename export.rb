@@ -49,7 +49,8 @@ class Export
   end
 
   def dump_schema
-    `mysqldump -u root --no-data #{@database} > #{File.join(@destination, 'schema.sql')}`
+    password = @password.empty? ? '' : "-p#{@password}"
+    `mysqldump -u root #{password} --no-data #{@database} > #{File.join(@destination, 'schema.sql')}`
   end
 end
 
