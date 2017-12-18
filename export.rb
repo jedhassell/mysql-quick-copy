@@ -60,23 +60,23 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: example.rb [options]"
 
-  opts.on("-o", "--output OUTPUT", "the output directory") do |output|
+  opts.on("-o", "--output OUTPUT", "Output directory. Default: '/tmp'") do |output|
     options[:output] = output
   end
 
-  opts.on("-d", "--database DATABASE", "The database name") do |database|
+  opts.on("-d", "--database DATABASE", "Database. Default: 'real_store_development'") do |database|
     options[:database] = database
   end
 
-  opts.on("-u", "--user USER", "The user") do |user|
+  opts.on("-u", "--user USER", "MySQL user. Default: 'root'") do |user|
     options[:user] = user
   end
 
-  opts.on("-p", "--password PASSWORD", "The password") do |password|
+  opts.on("-p", "--password PASSWORD", "MySQL password. Default: ''") do |password|
     options[:password] = password
   end
 
-  opts.on_tail('-h', '--help', 'Show this message') do
+  opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit
   end
