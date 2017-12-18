@@ -17,6 +17,7 @@ For a 55GB database:
 * #### Import the table data 
 ```bash
 ./import.rb -d 'my_database' -u 'user' -p 'password' -s '/tmp'
+./import.rb -h # for detailed information and defaults
 ```
 ### Notes
 * Script needs to be run on the server with MySQL client installed.
