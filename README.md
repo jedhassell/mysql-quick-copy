@@ -5,7 +5,7 @@ This method copies binary data files in the MySQL data directory rather than usi
 * #### Export the table data to the `/tmp` folder. 
 ```bash
 ./export.rb -d 'my_database' -u 'user' -p 'password' -o '/tmp'
-./export.rb -h # for detailed information
+./export.rb -h # for detailed information and defaults
 ```
 
 * #### Copy contents of `/tmp/my_database` to the destination computer.
