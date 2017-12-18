@@ -1,5 +1,9 @@
 # mysql-quick-copy - A faster database copy solution
-This method copies binary data files in the MySQL data directory rather than using the `mysqldump` tool provided. 
+This method copies binary data files in the MySQL data directory rather than using the `mysqldump` tool provided.
+#### Timing
+For a 55GB database: 
+* export ~2 minutes
+* import ~3 minutes
 
 ### Usage
 * #### Export the table data to the `/tmp` folder. 
@@ -19,7 +23,7 @@ This method copies binary data files in the MySQL data directory rather than usi
 * This method locks each table individually during the export process.
 * Script needs access to the MySQL `datadir` directory.
 
-### TODO {open a PR :) } 
+### TODO - open a PR :) 
 * Create gem
 * Create Homebrew recipe
 * Slackbot integration
