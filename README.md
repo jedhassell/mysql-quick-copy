@@ -12,7 +12,7 @@ For a 55GB database:
 ./export.rb -h # for detailed information and defaults
 ```
 
-* #### Copy contents of `/tmp/my_database` to the destination computer.
+* #### Copy `/tmp/my_database` to the destination computer. Compressing the directory can help transfer times.
 
 * #### Import the table data 
 ```bash
