@@ -23,6 +23,12 @@ For a 55GB database:
 * This method locks each table individually during the export process.
 * Script needs access to the MySQL `datadir` directory.
 
+### Use cases
+* Copying databases for developers
+* Creating test databases that are expendable
+* Dumping staging data
+* Do not use in production as it locks each table ~ 1-10 seconds depending on size
+
 ### TODO - open a PR :) 
 * Create gem
 * Create Homebrew recipe
