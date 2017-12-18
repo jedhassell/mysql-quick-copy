@@ -77,8 +77,13 @@ OptionParser.new do |opts|
     options[:user] = user
   end
 
-  opts.on("-p", "--password PASSWORD", "The password") do |e|
-    options[:password] = e
+  opts.on("-p", "--password PASSWORD", "The password") do |password|
+    options[:password] = password
+  end
+
+  opts.on_tail('-h', '--help', 'Show this message') do
+    puts opts
+    exit
   end
 end.parse!
 

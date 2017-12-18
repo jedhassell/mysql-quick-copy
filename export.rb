@@ -58,8 +58,8 @@ options = {}
 OptionParser.new do |opts|
   opts.banner = "Usage: example.rb [options]"
 
-  opts.on("-o", "--output OUTPUT", "the output directory") do |source|
-    options[:source] = source
+  opts.on("-o", "--output OUTPUT", "the output directory") do |output|
+    options[:output] = output
   end
 
   opts.on("-d", "--database DATABASE", "The database name") do |database|
@@ -70,8 +70,8 @@ OptionParser.new do |opts|
     options[:user] = user
   end
 
-  opts.on("-p", "--password PASSWORD", "The password") do |e|
-    options[:password] = e
+  opts.on("-p", "--password PASSWORD", "The password") do |password|
+    options[:password] = password
   end
 
   opts.on_tail('-h', '--help', 'Show this message') do
