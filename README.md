@@ -18,3 +18,8 @@ This method copies binary data files in the MySQL data directory rather than usi
 * Script needs to be run on the server.
 * This method locks each table individually during the export process.
 * Script needs access to the MySQL `datadir` directory.
+
+### TODO {open a PR :) } 
+* Create gem
+* Create Homebrew recipe
+* Slackbot integration
