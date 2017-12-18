@@ -1,6 +1,6 @@
 # mysql-quick-copy - A faster database copy solution
 This method copies binary data files in the MySQL data directory rather than using the `mysqldump` tool provided.
-#### Timing
+### Timing
 For a 55GB database: 
 * export ~2 minutes
 * import ~3 minutes
