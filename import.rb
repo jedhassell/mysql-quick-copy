@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'mysql2'
-require 'byebug'
 require 'fileutils'
 require 'io/console'
 require 'optparse'
